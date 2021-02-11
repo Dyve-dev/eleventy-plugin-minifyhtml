@@ -1,6 +1,6 @@
 {
   "name": "@dyve/eleventy-plugin-minifyhtml",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "11ty plugin minify html",
   "main": "plugin/index.js",
   "scripts": {
