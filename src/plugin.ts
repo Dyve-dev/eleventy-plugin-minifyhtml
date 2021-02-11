@@ -39,9 +39,13 @@ class Minifier extends Function {
 export default {
   initArguments: {},
   configFunction: async (eleventyConfig: any, pluginOptions: PluginOptions = defaults) => {
+    const M = new Minifier(pluginOptions);
     if (pluginOptions.minify) {
-      const M = new Minifier(pluginOptions);
       eleventyConfig.addTransform('minifyHtml', M);
     }
+    eleventyConfig.addFilter('minify', function (code: string) {
+      const mini = htmlMinifier.minify(code, { minifyJS: true });
+      return mini;
+    });
   },
 };
